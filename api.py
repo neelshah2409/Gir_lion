@@ -34,6 +34,7 @@ def get_availability():
         newDate = newDate[::-1]
         timing = data['timing']
         timing = int(timing)
+        print(date,timing)
 
         # using links
         links = ['https://girlion.gujarat.gov.in/GirJungleTrailBooking.aspx',

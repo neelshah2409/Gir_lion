@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from flask import Flask, request
 warnings.filterwarnings("ignore")
 
-app = Flask(_name_)
+app = Flask(__name__)
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 
 options = ChromeOptions()

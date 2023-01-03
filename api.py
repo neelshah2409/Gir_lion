@@ -45,7 +45,7 @@ def get_availability():
         # starting driver
         driver = webdriver.Chrome(options=options, executable_path='/usr/bin/chromedriver')
         driver.get(links[data['number'] - 1])
-        time.sleep(2)  # sleep_between_interactions
+        time.sleep(7)  # sleep_between_interactions
 
         # executing scripts
         driver.execute_script("document.querySelectorAll('table input')[0].value=arguments[0]", date)

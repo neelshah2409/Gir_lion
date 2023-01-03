@@ -12,12 +12,12 @@ options = ChromeOptions()
 options.headless = True
 options.add_argument(f'user-agent={user_agent}')
 options.add_argument("--window-size=1920,1080")
-options.add_argument('--ignore-certificate-errors')
-options.add_argument('--allow-running-insecure-content')
+#options.add_argument('--ignore-certificate-errors')
+#options.add_argument('--allow-running-insecure-content')
 options.add_argument("--disable-extensions")
-options.add_argument("--proxy-server='direct://'")
-options.add_argument("--proxy-bypass-list=*")
-options.add_argument("--start-maximized")
+#options.add_argument("--proxy-server='direct://'")
+#options.add_argument("--proxy-bypass-list=*")
+#options.add_argument("--start-maximized")
 options.add_argument('--disable-gpu')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--no-sandbox')
@@ -43,7 +43,7 @@ def get_availability():
                     '#ContentPlaceHolder1_GIZDevaliaGypsy_lblErrorMessage']
 
         # starting driver
-        driver = webdriver.Chrome( executable_path='/usr/bin/chromedriver')
+        driver = webdriver.Chrome(options=options, executable_path='/usr/bin/chromedriver')
         driver.get(links[data['number'] - 1])
         time.sleep(2)  # sleep_between_interactions
 

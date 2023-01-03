@@ -5,19 +5,19 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from flask import Flask, request
 warnings.filterwarnings("ignore")
 
-app = Flask(__name__)
+app = Flask(_name_)
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36"
 
 options = ChromeOptions()
 options.headless = True
 options.add_argument(f'user-agent={user_agent}')
 options.add_argument("--window-size=1920,1080")
-#options.add_argument('--ignore-certificate-errors')
-#options.add_argument('--allow-running-insecure-content')
+options.add_argument('--ignore-certificate-errors')
+options.add_argument('--allow-running-insecure-content')
 options.add_argument("--disable-extensions")
-#options.add_argument("--proxy-server='direct://'")
-#options.add_argument("--proxy-bypass-list=*")
-#options.add_argument("--start-maximized")
+options.add_argument("--proxy-server='direct://'")
+options.add_argument("--proxy-bypass-list=*")
+options.add_argument("--start-maximized")
 options.add_argument('--disable-gpu')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--no-sandbox')
@@ -34,7 +34,6 @@ def get_availability():
         newDate = newDate[::-1]
         timing = data['timing']
         timing = int(timing)
-        print(date,timing)
 
         # using links
         links = ['https://girlion.gujarat.gov.in/GirJungleTrailBooking.aspx',
@@ -44,9 +43,9 @@ def get_availability():
                     '#ContentPlaceHolder1_GIZDevaliaGypsy_lblErrorMessage']
 
         # starting driver
-        driver = webdriver.Chrome(options=options, executable_path='/usr/bin/chromedriver')
+        driver = webdriver.Chrome(options=options)
         driver.get(links[data['number'] - 1])
-        time.sleep(7)  # sleep_between_interactions
+        time.sleep(2)  # sleep_between_interactions
 
         # executing scripts
         driver.execute_script("document.querySelectorAll('table input')[0].value=arguments[0]", date)
@@ -78,5 +77,5 @@ def get_availability():
             return str(True)
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+if _name_ == '_main_':
+    app.run()

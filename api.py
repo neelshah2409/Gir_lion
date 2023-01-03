@@ -43,7 +43,7 @@ def get_availability():
                     '#ContentPlaceHolder1_GIZDevaliaGypsy_lblErrorMessage']
 
         # starting driver
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(options=options,executable_path='chromedriver.exe')
         driver.get(links[data['number'] - 1])
         time.sleep(2)  # sleep_between_interactions
 
